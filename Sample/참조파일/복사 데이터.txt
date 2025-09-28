@@ -1,0 +1,27 @@
+Chap06 - TodoList
+[
+  { id: 1, text: '첫번째 할 일', done: false },
+  { id: 2, text: '두번째 할 일', done: true },
+  { id: 3, text: '세번째 할 일', done: false },
+]
+
+
+Chap08 - Router Import
+
+import App from './../App'
+import A01Currency from './../components/A01Currency'
+import A02StateOne from './../components/A02StateOne'
+import A02StateTwo from './../components/A02StateTwo'
+import A03Navigate from './../components/A03Navigate'
+import A04Navigate from './../components/A04Navigate'
+import A05Props from './../components/A05Props'
+import A06ParamsOne from './../components/A06ParamsOne'
+import A06ParamsTwo from './../components/A06ParamsTwo'
+import A07Location from './../components/A07Location'
+import A07SearchParams from './../components/A07SearchParams'
+import A08ChildComp from './../components/A08ChildComp'
+import A08ChildOne from './../components/A08ChildOne'
+import A08ChildTwo from './../components/A08ChildTwo'
+import A09NotFound from './../components/A09NotFound'
+import A10Exception from './../components/A10Exception'
+import A10ErrorElem from './../components/A10ErrorElem'

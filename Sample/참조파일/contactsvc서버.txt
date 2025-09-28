@@ -1,0 +1,11 @@
+1. 설치
+  c:\contactsvc> npm i
+
+2. 서버시작 => pageage.json의 script 참조
+  c:\contactsvc> npm run dev
+
+3. 서버 포트 충돌
+  contactsvc/server.js 파일에 15줄 8000번을 다른 번호로 변경
+
+4. 브라우저에서
+  localhost:8000 으로 확인
