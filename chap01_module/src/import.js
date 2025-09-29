@@ -23,6 +23,10 @@ import two, { x, y } from './exportTwo.js'
 // const two = 2;                   // 변수명 중복 에러
 // console.log(two);                // { pName: 'value', .... }
 
+// 외부 모듈 import - Webpack, rollUp 이라는 번들 라이브러리와 함께 사용할 필요가 있다.
+// import $ from 'jquery';          // Error
+
+
 const name = 'Module';
 
 // || (OR 연산자) => 앞의 값이 undefined, null, 0, -0, NaN, '', false 인 경우 || 뒤의 값을 사용. 이외의 경우는 기본값 사용
