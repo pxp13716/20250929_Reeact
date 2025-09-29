@@ -1,3 +1,6 @@
+import javascriptLogo from './javascript.svg'
+import viteLogo from '/vite.svg'
+
 import { name as nick, age, check, arr, user, add } from './exportOne.js'
 import * as one from './exportOne.js'
 import two, { x, y } from './exportTwo.js'
@@ -11,6 +14,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 const name = 'Module';
 const dom = `
   <div>
+    <img src="${javascriptLogo}" alt="javascriptLogo" height="100">
+    <img src="${viteLogo}" alt="viteLogo" height="100">
+    <br>
+
     Name: ${name} / ${nick} / ${one.name}<br>
     Age: ${age} / ${one.age}<br>
     Check: ${check ? '동의' : '동의 안함'}<br>
