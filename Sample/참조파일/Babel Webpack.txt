@@ -13,8 +13,8 @@ Babel 작업 설정
       npm i -D @babel/preset-env
 
     3] 변환
-      npx babel src/A01Arrow.js -d dist
-      npx babel src/A01Arrow.js -d dist --presets @babel/preset-env
+      npx babel src/arrow.js -d dist
+      npx babel src/arrow.js -d dist --presets @babel/preset-env
 
       - 전체 파일 변환
       npx babel src -d dist
@@ -77,11 +77,11 @@ Babel 작업 설정
         "build": "babel src -d dist"
     },        
 
+  7. 실행
+    npm run build
 
 
 Webpack 설정
-  1. 설치
-    npm i -D webpack webpack-cli
 
   2. 설정 파일 작성
     npx create-new-webpack-app 프로젝트명
