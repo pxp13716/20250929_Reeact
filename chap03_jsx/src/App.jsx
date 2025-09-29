@@ -88,20 +88,73 @@ export default App;
 // 먼저 올라온 동일 이름의 CSS의 클래스, ID를 덮어쓴다.
 // import './App.css';
 
+// eslint rule 비 활성화 - eslint.config.js에서 전역 설정은 하지 말자
+/* eslint-disable no-unused-vars */
+
 // img, svg 파일 import
 import viteLogo from '/svg/vite.svg';         // dist에 svg 폴더가 통으로 복사
 import reactLogo from './assets/react.svg';   // assets 이미지는 리소스로 관리
 
 // 분리된 View를 import
 import A01Comp from './components/A01Comp';
+import A02Comp from './components/A02Comp'
+
+// react hook
+import { useState } from 'react';
+
+// 일반 변수 => 리엑트 변수의 값 변경에 관여하지 않는다.
+const x = 10;
+
+let name = '흥부';
+let age = 20;
+const check = true;
+const arr = [10, 11];
+const user = { name: 'Adam', age: 30 };
+const onAdd = (x = 0, y = 0) => `${x} + ${y} = ${x + y}`;
+
+const changeAge = () => age = 2000;
+const changeName = (x) => name = x;
 
 const App = () => {
+  // 상태변수 => 값이 변경되면 리엑트는 변경된 값으로 즉각 화면을 재 구성한다(리 렌더링 - 함수를 재 호출)
+  // const [getter, setter] = useState(초기값);
+  const [num, setNumber] = useState(10);
+  const changeNumber = (x) => setNumber(x);
+
   return (
     <div className="m-3">
       <h1>Hello World!!!</h1>
 
-      <div>Good Morning</div>
+      <div className="mb-3">
+        <h3>바인딩 표기법</h3>
+        값이 boolean, undefined, null은 화면에 표시되지 않는다<br />
+        Name: {name} <br />
+        Age: {age} <br />
+        Check: {check ? '동의' : '동의 안함'} <br />
+        Array: {arr[0]} / {arr[1]} / {arr[2] ?? 0} <br />
+        User: {user.name} / {user.age} / {user.address ?? 'UNKNOWN'} <br />
+        Function: {onAdd()} / {onAdd(10, 20)} <br />
+        Num: {num} <br />
+      </div>
       <br />
+
+      <div className="mb-3">
+        바인딩 내부에서 표현식 사용 가능<br />
+        10 + 20: {10 + 20} <br />
+        Length: {arr.length} <br />
+        Length * 100: {arr.length * 100} <br />
+        ===: {arr[0] > 0 ? '크다' : '작다'} <br />
+        &&: {(arr[0] > 0 && arr[1]) > 0 ? '둘다 크다' : '작다'} <br />
+      </div>
+
+      <div className="mb-3">
+        {/* 매겨변수가 없거나 event 객체 1개만 존재하는 경우는 함수명만 기술 */}
+        <button onClick={changeAge}>AGE</button>
+        {/* 매개변수가 event 이외의 경우는 "() => 함수명(매개변수값)" 형태로 사용 */}
+        <button onClick={() => changeName('방자')}>NAME</button>
+
+        <button onClick={() => changeNumber(3000)}>NUN</button>
+      </div>
 
       <div className='mb-3'>
         <a href="https://vite.dev" target="_blank">
@@ -115,6 +168,8 @@ const App = () => {
       </div>
 
       <A01Comp></A01Comp>
+
+      <A02Comp />
 
     </div>
   )
