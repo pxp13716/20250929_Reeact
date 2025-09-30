@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import A04Table from './A04Table'
 
 function A04CreateDOM() {
+  const cnt = useRef(4);
+
   const baseArray = ["NC", "두산", "엘지", "KT", "키움"];
 
   const [baseObject, setBaseObject] = useState([
@@ -21,7 +23,7 @@ function A04CreateDOM() {
     setData({ ...data, [evt.target.name]: evt.target.value });
   }
   const addTeam = () => {
-    setBaseObject(baseObject.concat({ id: 4, team: "삼성", value: "Samsung" }));
+    setBaseObject(baseObject.concat({ id: cnt.current++, team: "삼성", value: "Samsung" }));
   }
   const showHide = () => {
     setData({ ...data, isChecked: !data.isChecked });
