@@ -4,6 +4,7 @@ import A01State from './components/A01State'
 import A02Container from './components/A02Container'
 import A02Children from './components/A02Children'
 import A02Button from './components/A02Button'
+import A03Event from './components/A03Event'
 
 function App() {
   const name = 'App';
@@ -12,6 +13,8 @@ function App() {
   return (
     <div className="m-3">
       <h1>Chap04 Component</h1>
+
+      <A03Event></A03Event>
 
       <A02Button clz="btn btn-primary" id="btn01">CLICK</A02Button>
 
