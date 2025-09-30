@@ -8,6 +8,7 @@ function App() {
       <h1>Chap04 Component</h1>
 
       <A01State></A01State>
+      <A01State></A01State>
     </div>
   )
 }
