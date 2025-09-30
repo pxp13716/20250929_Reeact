@@ -5,6 +5,8 @@ import A02Container from './components/A02Container'
 import A02Children from './components/A02Children'
 import A02Button from './components/A02Button'
 import A03Event from './components/A03Event'
+import A04CreateDOM from './components/A04CreateDOM'
+import A05Hook from './components/A05Hook'
 
 function App() {
   const name = 'App';
@@ -14,6 +16,8 @@ function App() {
     <div className="m-3">
       <h1>Chap04 Component</h1>
 
+      <A05Hook></A05Hook>
+      <A04CreateDOM></A04CreateDOM>
       <A03Event></A03Event>
 
       <A02Button clz="btn btn-primary" id="btn01">CLICK</A02Button>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import A04Table from './A04Table'
 
 function A04CreateDOM() {
   const baseArray = ["NC", "두산", "엘지", "KT", "키움"];
@@ -42,6 +43,10 @@ function A04CreateDOM() {
         <br />
         <select name="teamOne" className="form-control" onChange={changeValue}>
           <option>선택해주세요</option>
+          {baseArray.map((item, idx) => {
+            // ["NC", "두산", "엘지", "KT", "키움"] => NC (item)
+            return <option key={idx}>{item}</option>
+          })}
         </select>
       </div>
 
@@ -49,6 +54,10 @@ function A04CreateDOM() {
         SelectBox: {data.teamTwo}
         <select name="teamTwo" className="form-control" onChange={changeValue}>
           <option value="">선택해주세요</option>
+          {baseObject.map((item) => {
+            // item => { id: 1, team: "NC", value: "NC" },
+            return <option key={item.id} value={item.value}>{item.team}</option>
+          })}
         </select>
       </div>
 
@@ -61,18 +70,43 @@ function A04CreateDOM() {
               <th>Value</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {baseObject.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.team}</td>
+                  <td>{item.value}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+          <tbody>
+            {baseObject.map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.team}</td>
+                <td>{item.value}</td>
+              </tr>
+            ))}
+          </tbody>
+
+          <tbody>
+            {baseObject.map((item) => <A04Table key={item.id} item={item} />)}
+          </tbody>
+
         </table>
         <button className="btn btn-outline-primary btn-sm" onClick={addTeam}>ADD TEAM</button>
       </div>
 
-      <div className="input-group mb-3">
-        <input type="text" className="form-control" value={data.team} onChange={changeTeam} />
-        <button className="btn btn-outline-primary btn-sm" onClick={addBaseArray}>ADD</button>
-      </div>
-
+      {data.isChecked &&
+        <div className="input-group mb-3">
+          <input type="text" className="form-control" value={data.team} onChange={changeTeam} />
+          <button className="btn btn-outline-primary btn-sm" onClick={addBaseArray}>ADD</button>
+        </div>
+      }
       <button className="btn btn-outline-primary btn-sm" onClick={showHide}>
-        HIDE
+        {data.isChecked ? 'HIDE' : 'SHOW'}
       </button>
     </div>
   );
