@@ -2,13 +2,27 @@ import React from "react"
 
 import A01State from './components/A01State'
 import A02Container from './components/A02Container'
+import A02Children from './components/A02Children'
+import A02Button from './components/A02Button'
 
 function App() {
-
+  const name = 'App';
+  const greet = <h3>Good Evening!!!</h3>
 
   return (
     <div className="m-3">
       <h1>Chap04 Component</h1>
+
+      <A02Button clz="btn btn-primary" id="btn01">CLICK</A02Button>
+
+      <A02Children greet={greet}>
+        <div>컨테이너에서 제공하는 View / {name}</div>
+        <A01State></A01State>
+      </A02Children>
+
+      <A02Children greet={greet}>
+        <h3>Good Morning!!! / {name}</h3>
+      </A02Children>
 
       <A02Container></A02Container>
 
