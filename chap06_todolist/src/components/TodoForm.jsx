@@ -1,4 +1,6 @@
 // 비 제어 컴포넌트
+import { memo } from 'react';
+
 function TodoForm(props) {
   const { addTodo } = props;
 
@@ -26,7 +28,7 @@ function TodoForm(props) {
     </form>
   );
 }
-export default TodoForm;
+export default memo(TodoForm);
 
 /*
 // 제어 컴포넌트

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from './css/todos.module.css';
 
 function TodoListItem(props) {
@@ -23,4 +23,5 @@ function TodoListItem(props) {
     </tr>
   );
 }
-export default TodoListItem;
+// 자신이 받는 props 값이 이전 가상돔과 동일한 경우만 재 사용
+export default memo(TodoListItem);
