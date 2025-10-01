@@ -8,14 +8,15 @@ import './css/A01Style.css';
 // 프로젝트 재 시작
 import './css/A01Style.scss';
 
+// 다른 파일로 분리하고 export 붙여서 외부에서 참조해서 사용할 수 있도록 지정
+// 사용하는 곳에서 import 구문으로 불러와 사용
+const title1 = 'title';
+const color1 = 'color';
+const myCSS = 'title color';
+const myStyle = { backgroundColor: 'lightgray', color: 'orange', padding: '10px' }
+
 function A01Style() {
-  const title1 = 'title';
-  const color1 = 'color';
-
-  const myCSS = 'title color';
   const [yourCSS, setCSS] = useState('title color');
-
-  const myStyle = { backgroundColor: 'lightgray', color: 'orange', padding: '10px' }
   const [yourStyle, setStyle] = useState({ backgroundColor: 'lightgray', color: 'orange', padding: '10px' });
 
   const [check, setCheck] = useState(true);
