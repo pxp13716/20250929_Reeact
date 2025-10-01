@@ -10,6 +10,7 @@ import A05Hook from './components/A05Hook'
 import A06Hook from './components/A06Hook'
 import A05CustomHook from './components/A05CustomHook'
 import A07OuterOne from './components/A07OuterOne'
+import A07OuterTwo from './components/A07OuterTwo'
 
 function App() {
   const name = 'App';
@@ -19,7 +20,8 @@ function App() {
     <div className="m-3">
       <h1>Chap04 Component</h1>
 
-      <A07OuterOne></A07OuterOne>
+      <A07OuterTwo name="TWO"></A07OuterTwo>
+      <A07OuterOne name="ONE"></A07OuterOne>
 
       <A05CustomHook></A05CustomHook>
       <A06Hook></A06Hook>
