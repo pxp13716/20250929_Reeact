@@ -33,8 +33,8 @@ const TodoContainer = () => {
     });
     setTodoList(todos);
   };
-  const addTodo = () => {
-    const todo = { id: cnt.current++, text: '할일', done: false };
+  const addTodo = (text) => {
+    const todo = { id: cnt.current++, text, done: false };
     const todos = todoList.concat(todo);
     setTodoList(todos);
   };
