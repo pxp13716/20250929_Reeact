@@ -11,6 +11,7 @@ import A06Hook from './components/A06Hook'
 import A05CustomHook from './components/A05CustomHook'
 import A07OuterOne from './components/A07OuterOne'
 import A07OuterTwo from './components/A07OuterTwo'
+import A08Immer from './components/A08Immer'
 
 function App() {
   const name = 'App';
@@ -19,6 +20,8 @@ function App() {
   return (
     <div className="m-3">
       <h1>Chap04 Component</h1>
+
+      <A08Immer></A08Immer>
 
       <A07OuterTwo name="TWO"></A07OuterTwo>
       <A07OuterOne name="ONE"></A07OuterOne>
