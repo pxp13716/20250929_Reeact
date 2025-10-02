@@ -1,8 +1,10 @@
 import React from 'react';
 
 import TodoListItem from './TodoListItem.jsx';
+import { useSelector } from 'react-redux';
 
 function Todolist() {
+  const { todoList } = useSelector((store) => store.todoStore)
   return (
     <div>
       <table className="table">
@@ -15,7 +17,7 @@ function Todolist() {
           </tr>
         </thead>
         <tbody>
-          <TodoListItem />
+          {todoList.map(todo => <TodoListItem key={todo.id} todo={todo} />)}
         </tbody>
       </table>
     </div>
