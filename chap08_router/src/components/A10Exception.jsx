@@ -7,6 +7,10 @@ function ExceptionComp() {
   const location = useLocation();
   const data = product.find(item => item.id === Number(id));
 
+  if (Number(id) < 1001 || Number(id) > 1006) {
+    throw new Error('ID 범위를 벗어났습니다...')
+  }
+
   return (
     <div>
       <h3>EXCEPTION</h3>

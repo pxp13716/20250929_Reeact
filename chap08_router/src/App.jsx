@@ -39,6 +39,11 @@ function App() {
 
         <NavLink to="/search?id=1005&name=흥부&no=15#TOP" className={isActiveCSS}>S1005</NavLink> | {' '}
         <NavLink to="/search?id=1006&name=춘향&no=16#MID" className={isActiveCSS}>S1006</NavLink> | {' '}
+
+        <NavLink to="/child" className={isActiveCSS}>CHILD</NavLink> | {' '}
+        <NavLink to="/child/two" className={isActiveCSS}>TWO</NavLink> | {' '}
+
+        <NavLink to="/exception/1100" className={isActiveCSS}>EXCEPTION</NavLink> | {' '}
       </div>
 
       <Outlet></Outlet>
