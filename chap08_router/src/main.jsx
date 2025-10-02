@@ -1,4 +1,4 @@
-// npm i react-router-dom@6 react-router@6 react-spinners bootstrap
+// npm i react-router-dom@6 react-router@6 react-spinners bootstrap p-min-delay
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';

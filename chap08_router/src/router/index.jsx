@@ -1,5 +1,6 @@
 // react-router는 6.4 버전부터 사용법이 확장
 import { createBrowserRouter, Route } from 'react-router-dom';
+import pMinDelay from 'p-min-delay'
 
 import App from './../App';
 import A01Currency from './../components/A01Currency';
@@ -60,7 +61,7 @@ const routes = createBrowserRouter([
       {
         path: '/location', lazy: async () => {
           try {
-            const module = await import('./../components/A07Location');
+            const module = await pMinDelay(import('./../components/A07Location'), 2000);
             console.log(module)
             return { Component: module.default }
           } catch {
@@ -73,7 +74,7 @@ const routes = createBrowserRouter([
       {
         path: '/search', lazy: async () => {
           try {
-            const module = await import('./../components/A07SearchParams');
+            const module = await pMinDelay(import('./../components/A07SearchParams'), 2000);
             console.log(module)
             return { Component: module.default }
           } catch {

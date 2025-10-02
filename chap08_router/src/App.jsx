@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigation } from 'react-router-dom';
+import { BeatLoader } from 'react-spinners'
 import './css/router.css';
 
 const isActive = (props) => {
@@ -10,6 +11,9 @@ const isActive = (props) => {
 const isActiveCSS = ({ isActive }) => isActive ? 'activeClass' : undefined;
 
 function App() {
+  const navigation = useNavigation();
+  // console.log(navigation);
+
   return (
     <div className="m-3">
       <h1>React Router</h1>
@@ -46,7 +50,7 @@ function App() {
         <NavLink to="/exception/1100" className={isActiveCSS}>EXCEPTION</NavLink> | {' '}
       </div>
 
-      <Outlet></Outlet>
+      {navigation.state === 'loading' ? <BeatLoader color="orange" /> : <Outlet></Outlet>}
     </div>
   );
 }
