@@ -32,6 +32,7 @@ const routes = createBrowserRouter([
       { path: '/state/:id', element: <A02StateTwo /> },
       { path: '/navigate', element: <A03Navigate /> },
       { path: '/redirect', element: <A04Navigate /> },
+
       { path: '/props', element: <A05Props name="놀부" age={30} /> },
 
       /*
@@ -41,7 +42,23 @@ const routes = createBrowserRouter([
         /paramOne/1001/놀부/11 => A06ParamsOne 컴포넌트에서 { id: '1001', name: '놀부', no:'11'} 형태가 된다
       */
       { path: '/paramOne/:id/:name/:no', element: <A06ParamsOne /> },
-      { path: '/paramTwo', element: <A06ParamsTwo /> },
+      { path: '/paramTwo/*', element: <A06ParamsTwo /> },
+
+      // path가 매칭되지 않은 경우 기본 값으로 표시할 컴포넌트 지정 - 위치는 상관없다
+      /*
+        1. 기본 패스 (/:XX) 형태가 없는 패스 등록
+        2. path/:XX
+        3. path/*
+        4. *
+      */
+      { path: '*', element: <A09NotFound /> },
+
+      // 주소줄에 path?key=value&key=value 형태의 파라메터 값 추출
+      // Link에서 값 전달
+      { path: 'location', element: <A07Location /> },
+      { path: 'search', element: <A07SearchParams /> },
+
+
     ],
   },
 ]);
