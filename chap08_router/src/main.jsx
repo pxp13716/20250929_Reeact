@@ -1,4 +1,4 @@
-// npm i react-router-dom@6 react-spinners bootstrap
+// npm i react-router-dom@6 react-router@6 react-spinners bootstrap
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -6,11 +6,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 
 // Router 설정
+// import 할 파일이 index.xxx 형태의 파일은 파일명 생략 가능
+import { RouterProvider } from 'react-router-dom'
+import router from './router'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <RouterProvider router={router}
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+        v7_fetcherPersist: true,
+        v7_normalizeFormMethod: true,
+        v7_partialHydration: true,
+        v7_skipActionErrorRevalidation: true,
+      }}
+    ></RouterProvider>
   </React.StrictMode>
 );
 
