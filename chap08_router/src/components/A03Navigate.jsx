@@ -16,18 +16,31 @@
   이동하는 페이지에 값을 전달할 목적. 해당 페이지에서 useLocation()의 state로 값을 참조할 수 있다
 */
 
-import React from "react";
+import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NavigateComp() {
+  // 이동 관련 Hook
+  const navigate = useNavigate();   // 함수
+
+  const goURL = useCallback((url, opt) => {
+    navigate(url, {
+      replace: opt.replace ?? false,
+      relative: opt.relative ?? 'path',
+      preventScrollReset: opt.prevent ?? true,
+      state: opt.state ?? {}
+    })
+  }, [navigate]);
+
   return (
     <div className="mb-3">
       <h3>NAVIGATE</h3>
 
       <div className="mb-3">
-        <button>BACK</button>
-        <button>FORWARD</button>
-        <button>HOME</button>
-        <button>PARAMETER</button>
+        <button onClick={() => navigate(-1)}>BACK</button>
+        <button onClick={() => navigate(1)}>FORWARD</button>
+        <button onClick={() => navigate("/")}>HOME</button>
+        <button onClick={() => goURL('/state', { replace: true, state: { name: 'Adam', age: 20 } })}>PARAMETER</button>
       </div>
     </div>
   );

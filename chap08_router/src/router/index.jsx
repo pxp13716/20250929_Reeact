@@ -33,6 +33,15 @@ const routes = createBrowserRouter([
       { path: '/navigate', element: <A03Navigate /> },
       { path: '/redirect', element: <A04Navigate /> },
       { path: '/props', element: <A05Props name="놀부" age={30} /> },
+
+      /*
+        패스를 이용한 값 전달 - 가장 많이 사용된다
+        /패스/:id/:name/:no와 같이 ":"이 없는 값은 고정 패스
+        /:XX => 가변패스 - 어떤 값이 와도 상관없다 (패스와 변수 역할을 한다)
+        /paramOne/1001/놀부/11 => A06ParamsOne 컴포넌트에서 { id: '1001', name: '놀부', no:'11'} 형태가 된다
+      */
+      { path: '/paramOne/:id/:name/:no', element: <A06ParamsOne /> },
+      { path: '/paramTwo', element: <A06ParamsTwo /> },
     ],
   },
 ]);
