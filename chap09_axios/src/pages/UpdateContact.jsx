@@ -11,9 +11,7 @@ function UpdateContact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // /:no값 추출
   const { no } = useParams();
-  // 이동
   const navigate = useNavigate();
 
   const getContact = useCallback(async () => {
@@ -26,6 +24,21 @@ function UpdateContact() {
     }
     setLoading(false);
   }, [no]);
+
+  const updateContact = useCallback(async (evt) => {
+    evt.preventDefault();
+    try {
+      const resp = await axios.put(baseURL + no, contact);
+      if (resp.data.status === 'success') {
+        Swal.fire({ title: 'SUCCESS', text: '데이터 수정 성공', icon: 'success' })
+      } else if (resp.data.status === 'fail') {
+        Swal.fire({ title: 'FAIL', text: '데이터 수정 실패', icon: 'error' })
+      }
+      navigate('/contactList')
+    } catch (err) {
+      setError(err);
+    }
+  }, [no, navigate, contact]);
 
   const changeContact = useCallback((evt) => {
     setContact((contact) => {
@@ -63,7 +76,7 @@ function UpdateContact() {
             value={contact.address} onChange={changeContact} />
         </div>
 
-        <button type="submit" className="btn btn-outline-primary">UPDATE</button>
+        <button type="submit" className="btn btn-outline-primary" onClick={updateContact}>UPDATE</button>
       </form>
     </div>
   );
